@@ -3,7 +3,6 @@ const bodyParser = require('body-parser')
 const path = require('path');
 require('dotenv').config()
 
-const predict = require('./api/predict')
 const broadcast = require('./api/broadcast')
 
 const app = express();
@@ -26,18 +25,11 @@ app.use(bodyParser.json());
 
 // An api endpoint that makes predictions
 app.post('/api/predict', async (req, res) => {
-    let { review, userId } = req.body
-    console.log("Got to predicting")
-    console.log(review)
+    //TODO: make prediction
 
-    let prediction = await predict(review.review)
-
-    review.prediction = prediction
-
-    //We'll broadcast so we can show it to all users
-    await broadcast({ review, userId })
-
-    res.send({prediction: prediction })
+    //TODO: Broadcast to subscribers (optional)
+    
+    res.send() //TODO: return real response
 })
 
 // Handles any requests that don't match the ones above

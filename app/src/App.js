@@ -21,38 +21,9 @@ function App() {
     setMovie(newMovie) 
   }
 
-  const predictMovieScore = async (reviewCopy) => {
-
-    console.log(`Predict for user ID: ${userId} and movie ${movie.Title}`)
-
-    let response = await fetch(
-        `api/predict`,
-        {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ 
-              review: {
-                review: reviewCopy,
-                title: movie.Title
-              },
-              userId
-             })
-        }
-    )
-    return response.json()
-}
-
   const submitReview =  async () => {
     console.log("Form submitted!")
-
     console.log(review)
-
-    let predictionResponse = await predictMovieScore(review)
-    predictionResponse.prediction && (
-      predictionResponse.prediction === '0' ? setPredictionScore('👎') : setPredictionScore('👍') 
-    )
   }
 
   const hideModal = () => {
