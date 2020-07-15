@@ -23,7 +23,6 @@ app.use(bodyParser.json());
  * }
  */
 
-
 // An api endpoint that makes predictions
 app.post('/api/predict', async (req, res) => {
     let { review, userId } = req.body
