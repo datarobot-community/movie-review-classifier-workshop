@@ -22,7 +22,6 @@ app.use(bodyParser.json());
  * }
  */
 
-
 // An api endpoint that makes predictions
 app.post('/api/predict', async (req, res) => {
     //TODO: make prediction
